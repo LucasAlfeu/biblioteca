@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package br.biblioteca.views;
 
 /**
  *
  * @author a1feu
  */
 public class Filtro extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form Filtro
      */
@@ -34,7 +35,7 @@ public class Filtro extends javax.swing.JFrame {
         btnAnoLancamento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Sistema Gerenciador da Biblioteca - Filtro");
+        setTitle("Sistema de gerenciamento da Biblioteca - Filtro");
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
         jLabel1.setText("Filtro");
@@ -85,29 +86,26 @@ public class Filtro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 40, Short.MAX_VALUE)
+                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnCategoria)
-                                .addGap(36, 36, 36)
-                                .addComponent(btnAnoLancamento)))
-                        .addContainerGap(56, Short.MAX_VALUE))
+                                .addComponent(btnAutor)))
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAnoLancamento)
+                            .addComponent(btnEditora)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAutor)
-                        .addGap(56, 56, 56)
-                        .addComponent(btnEditora)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(jLabel1)
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,7 +125,7 @@ public class Filtro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCategoria)
                     .addComponent(btnAnoLancamento))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,21 +139,19 @@ public class Filtro extends javax.swing.JFrame {
     private void btnAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorActionPerformed
         // Pegando o que foi digitado
         String busca = txtBusca.getText();
-        
+
         // Fazer a busca no Bd por autor
-        
-        
+
         //Fechar a janela
         this.setVisible(false);
     }//GEN-LAST:event_btnAutorActionPerformed
 
     private void btnEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditoraActionPerformed
-                // Pegando o que foi digitado
+        // Pegando o que foi digitado
         String busca = txtBusca.getText();
-        
+
         // Fazer a busca no Bd por editora
-        
-        
+
         //Fechar a janela
         this.setVisible(false);
     }//GEN-LAST:event_btnEditoraActionPerformed
@@ -163,10 +159,9 @@ public class Filtro extends javax.swing.JFrame {
     private void btnCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriaActionPerformed
         // Pegando o que foi digitado
         String busca = txtBusca.getText();
-        
+
         // Fazer a busca no Bd por categoria
-        
-        
+
         //Fechar a janela
         this.setVisible(false);
     }//GEN-LAST:event_btnCategoriaActionPerformed
@@ -174,10 +169,9 @@ public class Filtro extends javax.swing.JFrame {
     private void btnAnoLancamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnoLancamentoActionPerformed
         // Pegando o que foi digitado
         String busca = txtBusca.getText();
-        
+
         // Fazer a busca no Bd por ano de lançamento
-        
-        
+
         //Fechar a janela
         this.setVisible(false);
     }//GEN-LAST:event_btnAnoLancamentoActionPerformed

@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package br.biblioteca.views;
 
 /**
  *
@@ -26,21 +27,25 @@ public class VisualizarListaEspera extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Sistema Gerenciador da Biblioteca - Lista de Espera");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
+        setTitle("Sistema de Gerenciamento da Biblioteca - Lista de Espera");
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
         jLabel1.setText("Lista de Espera");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setText("Livro:");
+
+        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTituloActionPerformed(evt);
+            }
+        });
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,15 +56,6 @@ public class VisualizarListaEspera extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(tabela);
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel2.setText("Livro:");
-
-        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,7 +84,7 @@ public class VisualizarListaEspera extends javax.swing.JFrame {
                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,16 +94,6 @@ public class VisualizarListaEspera extends javax.swing.JFrame {
     private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTituloActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // Mostrar o titulo do livro 
-        txtTitulo.setText("Titulo do livro");
-        
-        //Fazer busca da lista de espera no bd dos livros
-        
-        
-        // Mostrar a lista na tabela
-    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

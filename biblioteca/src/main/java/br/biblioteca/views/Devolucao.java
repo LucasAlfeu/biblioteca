@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package br.biblioteca.views;
 
 /**
  *
@@ -26,8 +27,8 @@ public class Devolucao extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         txtIdExemplar = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         btnConfirmar = new javax.swing.JButton();
@@ -38,10 +39,10 @@ public class Devolucao extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
         jLabel1.setText("Devolução");
 
+        txtIdExemplar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Número do Exemplar:");
-
-        txtIdExemplar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setText("Usuário:");
@@ -72,7 +73,7 @@ public class Devolucao extends javax.swing.JFrame {
                             .addComponent(txtIdExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnConfirmar)
@@ -91,7 +92,7 @@ public class Devolucao extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnConfirmar)
                 .addGap(22, 22, 22))
         );
@@ -104,11 +105,11 @@ public class Devolucao extends javax.swing.JFrame {
         // Pegar o que foi digitado no formulario
         String idExemplar = txtIdExemplar.getText();
         String usuario = txtUsuario.getText();
-        
-        
+
         // Para validar a devolução Abriremos uma tela de confirmação com usuario e senha
         // Talvez eu precise fazer essa tela ainda
         
+
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
