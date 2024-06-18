@@ -8,7 +8,7 @@
  * @author a1feu
  */
 public class Filtro extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Filtro
      */
@@ -26,12 +26,12 @@ public class Filtro extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBusca = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnAutor = new javax.swing.JButton();
+        btnEditora = new javax.swing.JButton();
+        btnCategoria = new javax.swing.JButton();
+        btnAnoLancamento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema Gerenciador da Biblioteca - Filtro");
@@ -39,27 +39,47 @@ public class Filtro extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
         jLabel1.setText("Filtro");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtBusca.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtBuscaActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Buscar por:");
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("Autor");
+        btnAutor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnAutor.setText("Autor");
+        btnAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAutorActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton2.setText("Editora");
+        btnEditora.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnEditora.setText("Editora");
+        btnEditora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditoraActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton3.setText("Categoria");
+        btnCategoria.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnCategoria.setText("Categoria");
+        btnCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCategoriaActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton4.setText("Ano de Lançamento");
+        btnAnoLancamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnAnoLancamento.setText("Ano de Lançamento");
+        btnAnoLancamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnoLancamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,18 +92,18 @@ public class Filtro extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addComponent(btnCategoria)
                                 .addGap(36, 36, 36)
-                                .addComponent(jButton4)))
+                                .addComponent(btnAnoLancamento)))
                         .addContainerGap(56, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAutor)
                         .addGap(56, 56, 56)
-                        .addComponent(jButton2)
+                        .addComponent(btnEditora)
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGap(186, 186, 186)
@@ -96,17 +116,17 @@ public class Filtro extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnAutor)
+                    .addComponent(btnEditora))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnCategoria)
+                    .addComponent(btnAnoLancamento))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -114,9 +134,53 @@ public class Filtro extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtBuscaActionPerformed
+
+    private void btnAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutorActionPerformed
+        // Pegando o que foi digitado
+        String busca = txtBusca.getText();
+        
+        // Fazer a busca no Bd por autor
+        
+        
+        //Fechar a janela
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAutorActionPerformed
+
+    private void btnEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditoraActionPerformed
+                // Pegando o que foi digitado
+        String busca = txtBusca.getText();
+        
+        // Fazer a busca no Bd por editora
+        
+        
+        //Fechar a janela
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEditoraActionPerformed
+
+    private void btnCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriaActionPerformed
+        // Pegando o que foi digitado
+        String busca = txtBusca.getText();
+        
+        // Fazer a busca no Bd por categoria
+        
+        
+        //Fechar a janela
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCategoriaActionPerformed
+
+    private void btnAnoLancamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnoLancamentoActionPerformed
+        // Pegando o que foi digitado
+        String busca = txtBusca.getText();
+        
+        // Fazer a busca no Bd por ano de lançamento
+        
+        
+        //Fechar a janela
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAnoLancamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,12 +218,12 @@ public class Filtro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnAnoLancamento;
+    private javax.swing.JButton btnAutor;
+    private javax.swing.JButton btnCategoria;
+    private javax.swing.JButton btnEditora;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtBusca;
     // End of variables declaration//GEN-END:variables
 }

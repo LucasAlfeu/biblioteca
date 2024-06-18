@@ -27,17 +27,17 @@ public class ListaEmprestimos extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaEmprestimos = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
         jLabel1.setText("Lista de Empréstimos");
 
         jScrollPane1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        jTable1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaEmprestimos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        tabelaEmprestimos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -45,7 +45,7 @@ public class ListaEmprestimos extends javax.swing.JFrame {
                 "Titulo", "Numeração", "Usuário", "Status", "Data de Devoluçao"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaEmprestimos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,6 +72,7 @@ public class ListaEmprestimos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -112,6 +113,6 @@ public class ListaEmprestimos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaEmprestimos;
     // End of variables declaration//GEN-END:variables
 }
