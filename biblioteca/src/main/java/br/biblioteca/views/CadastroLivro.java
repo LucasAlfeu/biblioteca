@@ -42,7 +42,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Sistema Gerenciador da Biblioteca");
+        setTitle("Sistema Gerenciador da Biblioteca - Cadastrar Livro");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 23)); // NOI18N
         jLabel1.setText("Cadastro de Livro");
@@ -170,7 +170,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         
         
         // Fechar a janela e voltar para a tela inicial
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**

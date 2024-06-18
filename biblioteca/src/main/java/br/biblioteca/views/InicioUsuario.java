@@ -158,7 +158,9 @@ public class InicioUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltroActionPerformed
-        // Abrir a janela de Filtro
+        // Abrir tela de filtro
+        Filtro filtro = new Filtro();
+        filtro.setVisible(true);
         
     }//GEN-LAST:event_btnFiltroActionPerformed
 

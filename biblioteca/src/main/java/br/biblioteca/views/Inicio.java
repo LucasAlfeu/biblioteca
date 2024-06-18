@@ -163,7 +163,8 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltroActionPerformed
         // Abrir tela de filtro
-        
+        Filtro filtro = new Filtro();
+        filtro.setVisible(true);
     }//GEN-LAST:event_btnFiltroActionPerformed
 
     /**

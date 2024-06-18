@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package br.biblioteca.views;
 
 /**
  *
@@ -35,7 +36,7 @@ public class ListaEspera extends javax.swing.JFrame {
         btnConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Sistema Gerenciador da Biblioteca - Lista de Espera");
+        setTitle("Sistema de Gerenciamento da Biblioteca - Lista de Espera");
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
         jLabel1.setText("Lista de Espera");
@@ -96,7 +97,7 @@ public class ListaEspera extends javax.swing.JFrame {
                             .addComponent(txtIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnConfirmar)
@@ -121,7 +122,7 @@ public class ListaEspera extends javax.swing.JFrame {
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(btnConfirmar)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,14 +146,12 @@ public class ListaEspera extends javax.swing.JFrame {
         String titulo = txtTitulo.getText();
         String isbn = txtIsbn.getText();
         String usuario = txtUsuario.getText();
-        
-        
+
         // Cógio para inserir na lista de espera
-        
-        
+
         //Fechar a janela e abrir a lista de espera
-        VisualizarListaEspera lEspera = new VisualizarListaEspera();
-        lEspera.setVisible(true);
+        VisualizarListaEspera vLE = new VisualizarListaEspera();
+        vLE.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnConfirmarActionPerformed
 

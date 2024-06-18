@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package br.biblioteca.views;
 
 /**
  *
@@ -33,6 +34,7 @@ public class Emprestimo extends javax.swing.JFrame {
         btnConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Sistema de Gerenciamento da Biblioteca - Empréstimo");
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
         jLabel1.setText("Empréstimo");
@@ -71,7 +73,7 @@ public class Emprestimo extends javax.swing.JFrame {
                             .addComponent(txtIdExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnConfirmar)
@@ -92,7 +94,7 @@ public class Emprestimo extends javax.swing.JFrame {
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(btnConfirmar)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,11 +105,10 @@ public class Emprestimo extends javax.swing.JFrame {
         // Pegar o que foi digitado no formulario
         String idExemplar = txtIdExemplar.getText();
         String usuario = txtUsuario.getText();
-        
-        
+
         // Para validar a devolução Abriremos uma tela de confirmação com usuario e senha
         // Talvez eu precise fazer essa tela ainda
-        
+
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
