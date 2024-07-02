@@ -536,7 +536,7 @@
 											"top": 179,
 											"width": 133.58349609375,
 											"height": 13,
-											"text": "#password: String",
+											"text": "#senha: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1195,7 +1195,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -80,
-											"top": -80,
+											"top": 64,
 											"height": 13
 										},
 										{
@@ -1206,7 +1206,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 453,
-											"top": 383,
+											"top": 455,
 											"width": 142.25439453125,
 											"height": 13,
 											"text": "Administrador"
@@ -1220,7 +1220,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -80,
-											"top": -80,
+											"top": 64,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -1234,14 +1234,14 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": -80,
-											"top": -80,
+											"top": 64,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 448,
-									"top": 376,
+									"top": 448,
 									"width": 152.25439453125,
 									"height": 25,
 									"stereotypeLabel": {
@@ -1268,7 +1268,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 448,
-									"top": 401,
+									"top": 473,
 									"width": 152.25439453125,
 									"height": 10
 								},
@@ -1293,7 +1293,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 453,
-											"top": 416,
+											"top": 488,
 											"width": 142.25439453125,
 											"height": 13,
 											"text": "+cadastrarBibliotecario()",
@@ -1310,7 +1310,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 453,
-											"top": 431,
+											"top": 503,
 											"width": 142.25439453125,
 											"height": 13,
 											"text": "+adquiriNovosLivros()",
@@ -1319,7 +1319,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 448,
-									"top": 411,
+									"top": 483,
 									"width": 152.25439453125,
 									"height": 38
 								},
@@ -1335,7 +1335,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -40,
-									"top": -40,
+									"top": 32,
 									"width": 10,
 									"height": 10
 								},
@@ -1351,7 +1351,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": -40,
-									"top": -40,
+									"top": 32,
 									"width": 10,
 									"height": 10
 								}
@@ -1359,7 +1359,7 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 448,
-							"top": 376,
+							"top": 448,
 							"width": 151.25439453125,
 							"height": 101,
 							"nameCompartment": {
@@ -2711,8 +2711,8 @@
 										"$ref": "AAAAAAGPeb7/8DXrBU0="
 									},
 									"font": "Arial;13;0",
-									"left": 530,
-									"top": 433,
+									"left": 529,
+									"top": 469,
 									"width": 36.49267578125,
 									"height": 13,
 									"alpha": -2.7795049929106304,
@@ -2735,7 +2735,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"left": 494,
-									"top": 366,
+									"top": 402,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -2756,7 +2756,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 538,
-									"top": 367,
+									"top": 403,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -2774,7 +2774,7 @@
 								"$ref": "AAAAAAGPeaSJURo6icU="
 							},
 							"lineStyle": 1,
-							"points": "524:375;524:371",
+							"points": "524:447;525:371",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGPeb7/8DXuO+M="
@@ -2962,7 +2962,7 @@
 								"$ref": "AAAAAAGPeaSJURo6icU="
 							},
 							"lineStyle": 1,
-							"points": "481:375;288:144;157.5576171875:149.63795006793478",
+							"points": "489:447;288:144;157.5576171875:149.63795006793478",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGPeb9yfzYPefw="
@@ -7949,7 +7949,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPeYfpfA5liEk="
 							},
-							"name": "password",
+							"name": "senha",
 							"visibility": "protected",
 							"type": "String"
 						},
@@ -8131,7 +8131,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGQc3h4jJsBEr4="
 									},
-									"name": "String"
+									"name": "String",
+									"type": ""
 								}
 							]
 						},
