@@ -27,17 +27,31 @@ public class LivroDAO {
     
     
     public void cadastrarLivro(Livro livro){
-        String sql = "INSERT INTO livros(titulo,autor,numeroexemplares,estado) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO livros_cadastrados(titulo,autor,editora,categoria,anolancamento,numeroexemplares) VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);
             stmt.setString(1, livro.getTitulo());
             stmt.setString(2, livro.getAutor());
-            stmt.setInt(3, livro.getNumeroExemplares());
-            stmt.setString(4, livro.getEstado());
+            stmt.setString(3, livro.getEditora());
+            stmt.setString(4, livro.getCategoria());
+            stmt.setInt(5, livro.getAnoLancamento());
+            stmt.setInt(6, livro.getNumeroExemplares());
             stmt.execute();
         }
         catch (Exception e){
             System.out.println("Erro ao inserir livro: " + e.getMessage());
+        }
+    }
+    
+    public void excluirLivro(int id){
+        String sql = "DELETE FROM livros WHERE id=?";
+        try {
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.execute();
+        }
+        catch (Exception e){
+            System.out.println("Error ao remover livro: "+ e.getMessage());
         }
     }
     

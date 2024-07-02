@@ -16,6 +16,7 @@ public interface Servidor {
     void verificarLivrosEmprestados();
     void localizarLivros();
     void cadastrarLivro(Livro livro);
+    void excluirLivro();
     void atualizarLivro();
     void listaDeEspera();
     void cadastrarUsuario();

@@ -12,6 +12,9 @@ public class Livro {
     private int id;
     private String titulo;
     private String autor;
+    private String editora;
+    private String categoria;
+    private int anoLancamento;
     private int numeroExemplares;
     private String estado;
     
@@ -19,13 +22,16 @@ public class Livro {
         
     }
 
-    public Livro(int id, String titulo, String autor, int numeroExemplares, String estado) {
-        this.id = id;
+    public Livro(String titulo, String autor, String editora, String categoria, int anoLancamento, int numeroExemplares) {
         this.titulo = titulo;
         this.autor = autor;
+        this.editora = editora;
+        this.categoria = categoria;
+        this.anoLancamento = anoLancamento;
         this.numeroExemplares = numeroExemplares;
-        this.estado = estado;
     }
+
+    
     
     
 
@@ -41,7 +47,25 @@ public class Livro {
         return autor;
     }
 
-    
+    public String getEditora() {
+        return editora;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public int getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public int getNumeroExemplares() {
+        return numeroExemplares;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -55,14 +79,20 @@ public class Livro {
         this.autor = autor;
     }
 
-    public int getNumeroExemplares() {
-        return numeroExemplares;
+    public void setEditora(String editora) {
+        this.editora = editora;
     }
 
-    public String getEstado() {
-        return estado;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
+    public void setAnoLancamento(int anoLancamento) {
+        this.anoLancamento = anoLancamento;
+    }
+
+    
+    
     public void setNumeroExemplares(int numeroExemplares) {
         this.numeroExemplares = numeroExemplares;
     }
