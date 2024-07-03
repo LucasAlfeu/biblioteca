@@ -9,24 +9,13 @@ package beans;
  * @author Usuario
  */
 public class Administrador extends Usuario{
-    private String idAdm;
     
     public Administrador(){
         
     }
 
-    public Administrador(String nome, String email, String login, String password) {
-        super(nome, email, login, password);
+    public Administrador(String nome, String email, String login, String password, String idAdm, String tipoDeUsuario) {
+        super(nome, email, login, password, idAdm, tipoDeUsuario);
     }
-    
-
-    public String getIdAdm() {
-        return idAdm;
-    }
-
-    public void setIdAdm(String idAdm) {
-        this.idAdm = idAdm;
-    }
-    
     
 }

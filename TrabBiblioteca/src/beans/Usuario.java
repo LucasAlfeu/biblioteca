@@ -9,20 +9,40 @@ package beans;
  * @author Usuario
  */
 public class Usuario {
-    private String nome;
-    private String email;
-    private String login;
-    private String password;
+    protected String nome;
+    protected String email;
+    protected String login;
+    protected String password;
+    protected String idUsuario;
+    protected String tipoDeUsuario;
     
     public Usuario(){
         
     }
 
-    public Usuario(String nome, String email, String login, String password) {
+    public Usuario(String nome, String email, String login, String password, String idUsuario, String tipoDeUsuario) {
         this.nome = nome;
         this.email = email;
         this.login = login;
         this.password = password;
+        this.idUsuario = idUsuario;
+        this.tipoDeUsuario = tipoDeUsuario;
+    }
+
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getTipoDeUsuario() {
+        return tipoDeUsuario;
+    }
+
+    public void setTipoDeUsuario(String tipoDeUsuario) {
+        this.tipoDeUsuario = tipoDeUsuario;
     }
     
     

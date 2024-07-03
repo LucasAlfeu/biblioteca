@@ -9,25 +9,13 @@ package beans;
  * @author Usuario
  */
 public class Professor extends Usuario{
-   private String idProfessor;
    
    public Professor(){
        
    }
 
-    public Professor(String idProfessor, String nome, String email, String login, String password) {
-        super(nome, email, login, password);
-        this.idProfessor = idProfessor;
+    public Professor(String nome, String email, String login, String password, String idProfessor, String tipoDeUsuario) {
+        super(nome, email, login, password, idProfessor, tipoDeUsuario);
     }
-   
-   
-    public String getIdProfessor() {
-        return idProfessor;
-    }
-
-    public void setIdProfessor(String idProfessor) {
-        this.idProfessor = idProfessor;
-    }
-   
    
 }

@@ -9,25 +9,13 @@ package beans;
  * @author Usuario
  */
 public class Aluno extends Usuario{
-    private String matricula;
     
     public Aluno(){
         
     }
 
-    public Aluno(String matricula, String nome, String email, String login, String password) {
-        super(nome, email, login, password);
-        this.matricula = matricula;
-    }
-    
-    
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public Aluno(String matricula, String nome, String email, String login, String password, String idAluno, String tipoDeUsuario) {
+        super(nome, email, login, password, idAluno, tipoDeUsuario);
     }
     
     
