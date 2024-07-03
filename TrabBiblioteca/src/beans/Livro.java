@@ -14,19 +14,20 @@ public class Livro {
     private String autor;
     private int numeroExemplares;
     private String estado;
+    private String editora;
     
     public Livro(){
         
     }
 
-    public Livro(int id, String titulo, String autor, int numeroExemplares, String estado) {
+    public Livro(int id, String titulo, String autor, int numeroExemplares, String estado, String editora) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.numeroExemplares = numeroExemplares;
         this.estado = estado;
-    }
-    
+        this.editora = editora;
+    }   
     
 
     public int getId() {
@@ -41,7 +42,9 @@ public class Livro {
         return autor;
     }
 
-    
+    public String getEditora() {
+        return editora;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -71,7 +74,9 @@ public class Livro {
         this.estado = estado;
     }
 
-    
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
     
     
 }
