@@ -13,14 +13,13 @@ import java.util.List;
  * @author Usuario
  */
 public class Emprestimo {
-    private String idEmprestimo;
+    private int idEmprestimo;
     private Date dataEmprestimo;
     private Date dataDevolucao;
     private List<Exemplar> lista = new ArrayList<>();
-
-    public String getIdEmprestimo() {
-        return idEmprestimo;
-    }
+    private String idExemplar;
+    private String idUsuario;
+    
 
     public Date getDataEmprestimo() {
         return dataEmprestimo;
@@ -33,11 +32,6 @@ public class Emprestimo {
     public List<Exemplar> getLista() {
         return lista;
     }
-
-    public void setIdEmprestimo(String idEmprestimo) {
-        this.idEmprestimo = idEmprestimo;
-    }
-
     public void setDataEmprestimo(Date dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }

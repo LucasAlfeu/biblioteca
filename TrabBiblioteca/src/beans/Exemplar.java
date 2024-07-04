@@ -8,11 +8,11 @@ package beans;
  *
  * @author Usuario
  */
-public class Exemplar {
-    public String idExemplar;
+public class Exemplar extends Livro {
+    public int idExemplar;
     public boolean emprestavel;
 
-    public String getIdExemplar() {
+    public int getIdExemplar() {
         return idExemplar;
     }
 

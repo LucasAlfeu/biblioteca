@@ -9,12 +9,12 @@ package beans;
  * @author Usuario
  */
 public class Livro {
-    private int id;
-    private String titulo;
-    private String autor;
-    private int numeroExemplares;
-    private String estado;
-    private String editora;
+    protected int id;
+    protected String titulo;
+    protected String autor;
+    protected int numeroExemplares;
+    protected String estado;
+    protected String editora;
     
     public Livro(){
         
