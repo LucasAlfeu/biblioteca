@@ -8,6 +8,7 @@ import beans.Usuario;
 import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -40,4 +41,19 @@ public class UsuarioDAO {
             System.out.println("Erro ao inserir Usuario: " + e.getMessage());
         }
     } 
+    
+    public boolean validaUsuario(String usuario){
+        String sql = "SELECT login FROM usuario WHERE login = ?";
+        try {
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            
+            stmt.setString(1, usuario);
+            
+            ResultSet rs = stmt.executeQuery();
+            System.out.println(rs.wasNull());
+            return rs.wasNull();
+        } catch (Exception e){
+            return false;
+        }
+    }
 }

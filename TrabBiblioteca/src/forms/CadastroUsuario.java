@@ -247,6 +247,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtConfirmaSenhaActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        boolean usuarioUnico;
         String nome = txtNome.getText();
         String email = txtEmail.getText();
         String matricula = txtMatricula.getText();
@@ -255,47 +256,45 @@ public class CadastroUsuario extends javax.swing.JFrame {
         String confirmaSenha = txtConfirmaSenha.getText();
         String tipoUsuario = cmbTipoUsuario.getSelectedItem().toString();
         
-        if (senha.equals(confirmaSenha)){
-            Usuario user = new Usuario();
+        UsuarioDAO userDAO = new UsuarioDAO();
+        Usuario user = new Usuario();
+        
+        usuarioUnico = userDAO.validaUsuario(usuario);
+        
+        if(usuarioUnico){
+            if (senha.equals(confirmaSenha)){           
             
-            user.setNome(nome);
-            user.setEmail(email);
-            user.setMatricula(matricula);
-            user.setLogin(usuario);
-            user.setPassword(senha);
-            user.setTipoDeUsuario(tipoUsuario);
+                user.setNome(nome);
+                user.setEmail(email);
+                user.setMatricula(matricula);
+                user.setLogin(usuario);
+                user.setPassword(senha);
+                user.setTipoDeUsuario(tipoUsuario);                      
                         
-            UsuarioDAO userDAO = new UsuarioDAO();
-            
-            if(tipoUsuario.equals("Aluno") && matricula.length() == 11){
-                userDAO.cadstrarUsuario(user);
-                this.limpaCampos();                
-            } else {
-                if(tipoUsuario.equals("Professor") && matricula.length() == 7){
-                    userDAO.cadstrarUsuario(user);
-                    this.limpaCampos();
+                if(tipoUsuario.equals("Aluno") && matricula.length() == 11){
+                    //userDAO.cadstrarUsuario(user);
+                    this.limpaCampos();                
                 } else {
-                    if(tipoUsuario.equals("Bibliotecário") && matricula.length() == 5){
-                        userDAO.cadstrarUsuario(user);
+                    if(tipoUsuario.equals("Professor") && matricula.length() == 7){
+                        //userDAO.cadstrarUsuario(user);
                         this.limpaCampos();
                     } else {
-                        if(tipoUsuario.equals("Administrador") && matricula.length() == 4){
-                            userDAO.cadstrarUsuario(user);
+                        if(tipoUsuario.equals("Bibliotecário") && matricula.length() == 5){
+                            //userDAO.cadstrarUsuario(user);
                             this.limpaCampos();
-                        } else {this.mensagemErroIdentificacao();}
+                        } else {
+                            if(tipoUsuario.equals("Administrador") && matricula.length() == 4){
+                                //userDAO.cadstrarUsuario(user);
+                                this.limpaCampos();
+                            } else {this.mensagemErroIdentificacao();}
+                        }
                     }
                 }
+            } else {
+                JOptionPane.showMessageDialog(this, "As senhas estão diferentes");
             }
-            
-
-            
-
-            
-
-            
-
         } else {
-            JOptionPane.showMessageDialog(this, "As senhas estão diferentes");
+            JOptionPane.showMessageDialog(this, "Já existe esse usuario para login");
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
