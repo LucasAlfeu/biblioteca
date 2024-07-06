@@ -4,9 +4,9 @@
  */
 
 
-import beans.Aluno;
 import beans.Usuario;
 import dao.UsuarioDAO;
+import forms.Login;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,6 +36,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         txtSenha.setText("");
         txtConfirmaSenha.setText("");
         
+        Login lg = new Login();
+        lg.setVisible(true);
+        this.setVisible(false);
+        
         JOptionPane.showMessageDialog(this, "Usuário cadastrado com sucesso");
     }
     /**
@@ -64,7 +68,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         cmbTipoUsuario = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema Gerencidaor da Biblioteca - Cadastro Usuário");
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N

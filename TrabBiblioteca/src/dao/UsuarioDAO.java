@@ -50,10 +50,38 @@ public class UsuarioDAO {
             stmt.setString(1, usuario);
             
             ResultSet rs = stmt.executeQuery();
-            System.out.println(rs.wasNull());
             return rs.wasNull();
         } catch (Exception e){
             return false;
+        }
+    }
+    
+    public Usuario procuraUsuario(String usuario, String senha){
+        String sql = "SELECT * FROM usuarios WHERE login = ? AND senha = ?";
+        Usuario user = new Usuario();
+        try {
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            
+            stmt.setString(1, usuario);
+            stmt.setString(2, senha);
+            
+            
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                user.setNome(rs.getString("nome"));
+                user.setEmail(rs.getString("email"));
+                user.setLogin(usuario);
+                user.setPassword(senha);
+                user.setMatricula(rs.getString("matricula"));
+                user.setTipoDeUsuario(rs.getString("tipoUsuario"));
+                
+            }
+            
+            return user;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(user.getLogin());
+            return null;
         }
     }
 }
