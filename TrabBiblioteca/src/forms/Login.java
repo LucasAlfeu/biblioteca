@@ -111,9 +111,10 @@ public class Login extends javax.swing.JFrame {
             System.setProperty("matricula", user.getMatricula());
             System.setProperty("tipoUsuario", user.getTipoDeUsuario());
             
-            InicioUsuario in = new InicioUsuario();
-            in.setVisible(true);
+            InicioUsuario iniUsuario = new InicioUsuario();            
+            
             this.setVisible(false);
+            iniUsuario.setVisible(true);
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

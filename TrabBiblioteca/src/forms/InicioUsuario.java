@@ -15,8 +15,18 @@ public class InicioUsuario extends javax.swing.JFrame {
      */
     public InicioUsuario() {
         initComponents();
+        this.showProperties();
     }
 
+    private void showProperties(){
+        System.out.println(System.getProperty("nome"));
+        System.out.println(System.getProperty("email"));
+        System.out.println(System.getProperty("login"));
+        System.out.println(System.getProperty("senha"));
+        System.out.println(System.getProperty("matricula"));
+        System.out.println(System.getProperty("tipoUsuario"));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,13 +42,13 @@ public class InicioUsuario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema Gerenciador da Biblioteca");
         setPreferredSize(new java.awt.Dimension(967, 598));
         setSize(new java.awt.Dimension(967, 598));
@@ -67,7 +77,12 @@ public class InicioUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton3.setText("Sair");
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Menu");
 
@@ -97,7 +112,7 @@ public class InicioUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnSair)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(207, Short.MAX_VALUE)
@@ -116,7 +131,7 @@ public class InicioUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(btnSair)
                     .addComponent(jButton4)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
@@ -136,11 +151,25 @@ public class InicioUsuario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        System.clearProperty("nome");
+        System.clearProperty("email");
+        System.clearProperty("login");
+        System.clearProperty("senha");
+        System.clearProperty("matricula");
+        System.clearProperty("tipoUsuario");
+        
+        Inicio ini = new Inicio();
+        ini.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,9 +207,9 @@ public class InicioUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSair;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+package forms;
 
 import beans.Usuario;
 import dao.UsuarioDAO;
@@ -41,6 +41,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
         this.setVisible(false);
         
         JOptionPane.showMessageDialog(this, "Usuário cadastrado com sucesso");
+    }
+    
+    private void trocaTela(){
+        Login lg = new Login();
+        lg.setVisible(true);
+        this.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -264,7 +270,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         Usuario user = new Usuario();
         
         usuarioUnico = userDAO.validaUsuario(usuario);
-        
+        System.out.println(usuarioUnico);
         if(usuarioUnico){
             if (senha.equals(confirmaSenha)){           
             
@@ -276,19 +282,23 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 user.setTipoDeUsuario(tipoUsuario);                      
                         
                 if(tipoUsuario.equals("Aluno") && matricula.length() == 11){
-                    //userDAO.cadstrarUsuario(user);
-                    this.limpaCampos();                
+                    userDAO.cadstrarUsuario(user);
+                    this.trocaTela();
+                    this.limpaCampos();               
                 } else {
                     if(tipoUsuario.equals("Professor") && matricula.length() == 7){
-                        //userDAO.cadstrarUsuario(user);
+                        userDAO.cadstrarUsuario(user);
+                        this.trocaTela();
                         this.limpaCampos();
                     } else {
                         if(tipoUsuario.equals("Bibliotecário") && matricula.length() == 5){
-                            //userDAO.cadstrarUsuario(user);
+                            userDAO.cadstrarUsuario(user);
+                            this.trocaTela();
                             this.limpaCampos();
                         } else {
                             if(tipoUsuario.equals("Administrador") && matricula.length() == 4){
-                                //userDAO.cadstrarUsuario(user);
+                                userDAO.cadstrarUsuario(user);
+                                this.trocaTela();
                                 this.limpaCampos();
                             } else {this.mensagemErroIdentificacao();}
                         }
@@ -298,7 +308,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "As senhas estão diferentes");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Já existe esse usuario para login");
+            txtUsuario.setText("");
+            JOptionPane.showMessageDialog(this, "Usuário existente");            
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
