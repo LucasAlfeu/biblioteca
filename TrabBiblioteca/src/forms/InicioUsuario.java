@@ -18,6 +18,9 @@ public class InicioUsuario extends javax.swing.JFrame {
     /**
      * Creates new form InicioUsuario
      */
+    
+    private String tipoUser = System.getProperty("tipoUsuario");
+    
     public InicioUsuario() {
         initComponents();
         this.criarObjeto();
@@ -65,7 +68,7 @@ public class InicioUsuario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        bntMenu = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jlNome = new javax.swing.JLabel();
         jlTipoUsuario = new javax.swing.JLabel();
@@ -105,7 +108,12 @@ public class InicioUsuario extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Menu");
+        bntMenu.setText("Menu");
+        bntMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntMenuActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Seja bem vindo, ");
 
@@ -131,7 +139,7 @@ public class InicioUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(bntMenu)
                 .addGap(18, 18, 18)
                 .addComponent(btnSair)
                 .addGap(22, 22, 22))
@@ -153,7 +161,7 @@ public class InicioUsuario extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSair)
-                    .addComponent(jButton4)
+                    .addComponent(bntMenu)
                     .addComponent(jLabel2)
                     .addComponent(jlNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,9 +200,32 @@ public class InicioUsuario extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void bntMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMenuActionPerformed
+        if(tipoUser.equals("Aluno")){
+            MenuAP menuAluno = new MenuAP();
+            menuAluno.setVisible(true);
+        }
+        
+        if(tipoUser.equals("Professor")){
+            MenuAP menuProfessor = new MenuAP();
+            menuProfessor.setVisible(true);
+        }
+        
+        if(tipoUser.equals("Bibliotecário")){
+            MenuBibliotecario menuBiblio = new MenuBibliotecario();
+            menuBiblio.setVisible(true);
+        }
+        
+        if(tipoUser.equals("Administrador")){
+            MenuBibliotecario menuAdm = new MenuBibliotecario();
+            menuAdm.setVisible(true);
+        }
+    }//GEN-LAST:event_bntMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -228,10 +259,10 @@ public class InicioUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntMenu;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

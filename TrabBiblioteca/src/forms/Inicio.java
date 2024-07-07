@@ -43,16 +43,6 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         preencheTabela();
-        this.showProperties();
-    }
-    
-    private void showProperties(){
-        System.out.println(System.getProperty("nome"));
-        System.out.println(System.getProperty("email"));
-        System.out.println(System.getProperty("login"));
-        System.out.println(System.getProperty("senha"));
-        System.out.println(System.getProperty("matricula"));
-        System.out.println(System.getProperty("tipoUsuario"));
     }
     
 
