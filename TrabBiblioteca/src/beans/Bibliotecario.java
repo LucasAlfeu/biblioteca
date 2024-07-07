@@ -6,17 +6,14 @@ package beans;
 
 /**
  *
- * @author Usuario
+ * @author a1feu
  */
-public class Aluno extends Usuario{
-    
-    public Aluno(){
+public class Bibliotecario extends Usuario {
+    public Bibliotecario(){
         
     }
-
-    public Aluno(String nome, String email, String login, String password, String matricula, String tipoDeUsuario) {
+    
+    public Bibliotecario(String nome, String email, String login, String password, String matricula, String tipoDeUsuario) {
         super(nome, email, login, password, matricula, tipoDeUsuario);
     }
-    
-    
 }

@@ -4,6 +4,11 @@
  */
 package forms;
 
+import beans.Administrador;
+import beans.Aluno;
+import beans.Bibliotecario;
+import beans.Professor;
+
 /**
  *
  * @author a1feu
@@ -15,18 +20,35 @@ public class InicioUsuario extends javax.swing.JFrame {
      */
     public InicioUsuario() {
         initComponents();
-        this.showProperties();
-    }
-
-    private void showProperties(){
-        System.out.println(System.getProperty("nome"));
-        System.out.println(System.getProperty("email"));
-        System.out.println(System.getProperty("login"));
-        System.out.println(System.getProperty("senha"));
-        System.out.println(System.getProperty("matricula"));
-        System.out.println(System.getProperty("tipoUsuario"));
+        this.criarObjeto();
+        jlNome.setText(System.getProperty("nome"));
+        jlTipoUsuario.setText(System.getProperty("tipoUsuario"));
     }
     
+    private void criarObjeto(){
+        String nome = System.getProperty("nome");
+        String email = System.getProperty("email");
+        String login = System.getProperty("login");
+        String senha = System.getProperty("senha");
+        String matricula = System.getProperty("matricula");
+        String tipoUsuario = System.getProperty("tipoUsuario");
+        
+        if(System.getProperty("tipoUsuario").equals("Aluno")){
+            Aluno aluno = new Aluno(nome, email, login, senha, matricula, tipoUsuario);
+        }
+        
+        if (System.getProperty("tipoUsuario").equals("Professor")){
+            Professor professor = new Professor(nome, email, login, senha, matricula, tipoUsuario);
+        }
+        
+        if (System.getProperty("tipoUsuario").equals("Bibliotecário")){
+            Bibliotecario bibliotecario = new Bibliotecario(nome, email, login, senha, matricula, tipoUsuario);
+        }
+        
+        if (System.getProperty("tipoUsuario").equals("Administrador")){
+            Administrador adm = new Administrador(nome, email, login, senha, matricula, tipoUsuario);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,12 +67,11 @@ public class InicioUsuario extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jlNome = new javax.swing.JLabel();
+        jlTipoUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema Gerenciador da Biblioteca");
-        setPreferredSize(new java.awt.Dimension(967, 598));
         setSize(new java.awt.Dimension(967, 598));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
@@ -88,9 +109,9 @@ public class InicioUsuario extends javax.swing.JFrame {
 
         jLabel2.setText("Seja bem vindo, ");
 
-        jLabel3.setText("nome do usuário");
+        jlNome.setText("nome do usuário");
 
-        jLabel4.setText("Tipo de Usuário");
+        jlTipoUsuario.setText("Tipo de Usuário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,10 +126,10 @@ public class InicioUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlTipoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(jlNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
@@ -134,9 +155,9 @@ public class InicioUsuario extends javax.swing.JFrame {
                     .addComponent(btnSair)
                     .addComponent(jButton4)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jlNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(jlTipoUsuario)
                 .addGap(112, 112, 112)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -213,10 +234,10 @@ public class InicioUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jlNome;
+    private javax.swing.JLabel jlTipoUsuario;
     // End of variables declaration//GEN-END:variables
 }

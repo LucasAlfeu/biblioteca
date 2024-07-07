@@ -21,14 +21,13 @@ public class Usuario {
         
     }
 
-    public Usuario(String nome, String email, String login, String password, String idUsuario, String tipoDeUsuario, String matricula) {
+    public Usuario(String nome, String email, String login, String password, String matricula, String tipoDeUsuario) {
         this.nome = nome;
         this.email = email;
         this.login = login;
         this.password = password;
-        this.idUsuario = idUsuario;
-        this.tipoDeUsuario = tipoDeUsuario;
         this.matricula = matricula;
+        this.tipoDeUsuario = tipoDeUsuario;
     }
 
     public String getMatricula() {

@@ -14,8 +14,8 @@ public class Professor extends Usuario{
        
    }
 
-    public Professor(String nome, String email, String login, String password, String idProfessor, String tipoDeUsuario, String matricula) {
-        super(nome, email, login, password, idProfessor, tipoDeUsuario, matricula);
+    public Professor(String nome, String email, String login, String password, String matricula, String tipoDeUsuario) {
+        super(nome, email, login, password, matricula, tipoDeUsuario);
     }
    
 }
