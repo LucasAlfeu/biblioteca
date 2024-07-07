@@ -257,7 +257,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtConfirmaSenhaActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        boolean usuarioUnico;
+        String usuarioUnico;
         String nome = txtNome.getText();
         String email = txtEmail.getText();
         String matricula = txtMatricula.getText();
@@ -269,47 +269,62 @@ public class CadastroUsuario extends javax.swing.JFrame {
         UsuarioDAO userDAO = new UsuarioDAO();
         Usuario user = new Usuario();
         
+        user.setNome(nome);
+        user.setEmail(email);
+        user.setMatricula(matricula);
+        user.setLogin(usuario);
+        user.setPassword(senha);
+        user.setTipoDeUsuario(tipoUsuario); 
+        
         usuarioUnico = userDAO.validaUsuario(usuario);
-        System.out.println(usuarioUnico);
-        if(usuarioUnico){
-            if (senha.equals(confirmaSenha)){           
-            
-                user.setNome(nome);
-                user.setEmail(email);
-                user.setMatricula(matricula);
-                user.setLogin(usuario);
-                user.setPassword(senha);
-                user.setTipoDeUsuario(tipoUsuario);                      
-                        
-                if(tipoUsuario.equals("Aluno") && matricula.length() == 11){
-                    userDAO.cadstrarUsuario(user);
-                    this.trocaTela();
-                    this.limpaCampos();               
-                } else {
-                    if(tipoUsuario.equals("Professor") && matricula.length() == 7){
-                        userDAO.cadstrarUsuario(user);
-                        this.trocaTela();
-                        this.limpaCampos();
-                    } else {
-                        if(tipoUsuario.equals("Bibliotecário") && matricula.length() == 5){
-                            userDAO.cadstrarUsuario(user);
-                            this.trocaTela();
-                            this.limpaCampos();
-                        } else {
-                            if(tipoUsuario.equals("Administrador") && matricula.length() == 4){
+ 
+        if(senha.equals(confirmaSenha)){
+            if(!senha.equals("") && !confirmaSenha.equals("")){
+                if (!usuario.equals(usuarioUnico)){
+                    switch (matricula.length()){
+                        case 4:
+                            if(tipoUsuario.equals("Administrador")){
                                 userDAO.cadstrarUsuario(user);
                                 this.trocaTela();
                                 this.limpaCampos();
-                            } else {this.mensagemErroIdentificacao();}
-                        }
+                            } else { this.mensagemErroIdentificacao(); }
+                            break;
+                        case 5:
+                            if(tipoUsuario.equals("Bibliotecário")){
+                                userDAO.cadstrarUsuario(user);
+                                this.trocaTela();
+                                this.limpaCampos();
+                            } else { this.mensagemErroIdentificacao(); }
+                            break;
+                        case 7:
+                            if(tipoUsuario.equals("Professor")){
+                                userDAO.cadstrarUsuario(user);
+                                this.trocaTela();
+                                this.limpaCampos();
+                            } else { this.mensagemErroIdentificacao(); }
+                            break;
+                        case 11:
+                            if(tipoUsuario.equals("Aluno")){
+                                userDAO.cadstrarUsuario(user);
+                                this.trocaTela();
+                                this.limpaCampos();
+                            } else { this.mensagemErroIdentificacao(); }
+                            break;
+                        default:
+                            txtMatricula.setText("");
+                            JOptionPane.showMessageDialog(this, "Insira uma identificação válida");
                     }
+                } else {
+                    txtUsuario.setText("");
+                    JOptionPane.showMessageDialog(this, "Usuário existente");
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "As senhas estão diferentes");
-            }
+                JOptionPane.showMessageDialog(this, "Os campos das senhas estão vazios");
+            }                    
         } else {
-            txtUsuario.setText("");
-            JOptionPane.showMessageDialog(this, "Usuário existente");            
+            txtSenha.setText("");
+            txtConfirmaSenha.setText("");
+            JOptionPane.showMessageDialog(this, "As senhas estão diferentes");            
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

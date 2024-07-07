@@ -42,17 +42,27 @@ public class UsuarioDAO {
         }
     } 
     
-    public boolean validaUsuario(String usuario){
-        String sql = "SELECT login FROM usuario WHERE login = ?";
+    public String validaUsuario(String usuario){
+        String sql = "SELECT login FROM usuarios WHERE login = ?";
+        String aux = "";
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);
             
             stmt.setString(1, usuario);
             
             ResultSet rs = stmt.executeQuery();
-            return rs.wasNull();
+            while(rs.next()){
+                aux = rs.getString("login");
+            }
+            /**if(usuario.equals(aux)){
+                return "Usuario existente";
+            } else {
+                return usuario;
+            }*/
+            return aux;
         } catch (Exception e){
-            return false;
+            System.out.println(e.getMessage());
+            return "diferente";
         }
     }
     
