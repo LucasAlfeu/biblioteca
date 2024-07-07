@@ -277,8 +277,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
         user.setTipoDeUsuario(tipoUsuario); 
         
         usuarioUnico = userDAO.validaUsuario(usuario);
- 
-        if(senha.equals(confirmaSenha)){
+        
+        if(nome.equals("") || email.equals("") || matricula.equals("") || usuario.equals("")){
+            JOptionPane.showMessageDialog(this, "Existem campos vazios");
+        } else {
+            if(senha.equals(confirmaSenha)){
             if(!senha.equals("") && !confirmaSenha.equals("")){
                 if (!usuario.equals(usuarioUnico)){
                     switch (matricula.length()){
@@ -326,6 +329,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
             txtConfirmaSenha.setText("");
             JOptionPane.showMessageDialog(this, "As senhas estão diferentes");            
         }
+        }
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
