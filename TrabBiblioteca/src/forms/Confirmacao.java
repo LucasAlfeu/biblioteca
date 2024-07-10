@@ -153,7 +153,7 @@ public class Confirmacao extends javax.swing.JFrame {
         UsuarioDAO userDAO = new UsuarioDAO();
         Usuario user = userDAO.procuraUsuario(login, senha);
 
-        if(user.getTipoDeUsuario().equals("Administrador")){
+        if(user.getTipoDeUsuario() != null && user.getTipoDeUsuario().equals("Administrador")){
             userDAO.cadstrarUsuario(funcionario);
             this.trocaTelaAposConfirmarAdm();
         } else {
