@@ -194,6 +194,7 @@ public class InicioUsuario extends javax.swing.JFrame {
         System.clearProperty("senha");
         System.clearProperty("matricula");
         System.clearProperty("tipoUsuario");
+        System.clearProperty("logado");
         
         Inicio ini = new Inicio();
         ini.setVisible(true);

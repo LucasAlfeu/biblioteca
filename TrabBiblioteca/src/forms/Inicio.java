@@ -43,6 +43,7 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         preencheTabela();
+        System.setProperty("logado", "nao");
     }
     
 

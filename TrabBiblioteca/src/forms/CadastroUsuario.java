@@ -6,7 +6,7 @@ package forms;
 
 import beans.Usuario;
 import dao.UsuarioDAO;
-import forms.Login;
+import forms.Confirmacao;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class CadastroUsuario extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form CadastroUsuario
      */
@@ -48,6 +49,25 @@ public class CadastroUsuario extends javax.swing.JFrame {
         lg.setVisible(true);
         this.setVisible(false);
     }
+    
+    private void validaAdm(UsuarioDAO userDAO, Usuario user, String test){
+        
+        System.out.println(test);
+        if(test.equals("adm")){
+            userDAO.cadstrarUsuario(user);
+            long start = System.currentTimeMillis();
+            long end = start + 1 * 1000;
+            while (System.currentTimeMillis() < end) {
+                System.out.println(System.currentTimeMillis());
+            }
+            this.trocaTela();
+            this.limpaCampos();
+            System.clearProperty("ehAdm");
+        } else {
+        JOptionPane.showMessageDialog(this, "Somente um usuario do tipo Administrador pode fazer esse cadastro");
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -267,7 +287,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
         String tipoUsuario = cmbTipoUsuario.getSelectedItem().toString();
         
         UsuarioDAO userDAO = new UsuarioDAO();
-        Usuario user = new Usuario();
+        Usuario user = new Usuario();        
+        Confirmacao confir = new Confirmacao(user);
         
         user.setNome(nome);
         user.setEmail(email);
@@ -286,17 +307,16 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 if (!usuario.equals(usuarioUnico)){
                     switch (matricula.length()){
                         case 4:
-                            if(tipoUsuario.equals("Administrador")){
-                                userDAO.cadstrarUsuario(user);
-                                this.trocaTela();
-                                this.limpaCampos();
+                            if(tipoUsuario.equals("Administrador") ){                                
+                                confir.setVisible(true);
+                                this.setVisible(false);
                             } else { this.mensagemErroIdentificacao(); }
-                            break;
+                            break;                           
+                             
                         case 5:
-                            if(tipoUsuario.equals("Bibliotecário")){
-                                userDAO.cadstrarUsuario(user);
-                                this.trocaTela();
-                                this.limpaCampos();
+                            if(tipoUsuario.equals("Bibliotecário") ){
+                                confir.setVisible(true); 
+                                this.setVisible(false);
                             } else { this.mensagemErroIdentificacao(); }
                             break;
                         case 7:

@@ -110,6 +110,8 @@ public class Login extends javax.swing.JFrame {
             System.setProperty("senha", user.getPassword());
             System.setProperty("matricula", user.getMatricula());
             System.setProperty("tipoUsuario", user.getTipoDeUsuario());
+            System.clearProperty("logado");
+            System.setProperty("logado", "sim");
             
             InicioUsuario iniUsuario = new InicioUsuario();            
             
