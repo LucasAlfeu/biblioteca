@@ -43,30 +43,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(this, "Usuário cadastrado com sucesso");
     }
-    
-    private void trocaTela(){
-        Login lg = new Login();
-        lg.setVisible(true);
-        this.setVisible(false);
-    }
-    
-    private void validaAdm(UsuarioDAO userDAO, Usuario user, String test){
-        
-        System.out.println(test);
-        if(test.equals("adm")){
-            userDAO.cadstrarUsuario(user);
-            long start = System.currentTimeMillis();
-            long end = start + 1 * 1000;
-            while (System.currentTimeMillis() < end) {
-                System.out.println(System.currentTimeMillis());
-            }
-            this.trocaTela();
-            this.limpaCampos();
-            System.clearProperty("ehAdm");
-        } else {
-        JOptionPane.showMessageDialog(this, "Somente um usuario do tipo Administrador pode fazer esse cadastro");
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -322,14 +298,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
                         case 7:
                             if(tipoUsuario.equals("Professor")){
                                 userDAO.cadstrarUsuario(user);
-                                this.trocaTela();
+                                this.setVisible(false);
                                 this.limpaCampos();
                             } else { this.mensagemErroIdentificacao(); }
                             break;
                         case 11:
                             if(tipoUsuario.equals("Aluno")){
                                 userDAO.cadstrarUsuario(user);
-                                this.trocaTela();
+                                this.setVisible(false);
                                 this.limpaCampos();
                             } else { this.mensagemErroIdentificacao(); }
                             break;

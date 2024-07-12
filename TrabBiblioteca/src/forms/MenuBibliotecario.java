@@ -27,31 +27,71 @@ public class MenuBibliotecario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        btnDeletarUsuario = new javax.swing.JButton();
+        btnCadastrarUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Menu do Usuario do tipo Bibliotecário");
 
+        btnDeletarUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnDeletarUsuario.setText("Deletar Usuario");
+        btnDeletarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnCadastrarUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnCadastrarUsuario.setText("Cadastrar Usuario");
+        btnCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(95, 95, 95))
+                .addGap(94, 94, 94))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(btnCadastrarUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDeletarUsuario)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrarUsuario)
+                    .addComponent(btnDeletarUsuario))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDeletarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarUsuarioActionPerformed
+        DeletaUsuario dU = new DeletaUsuario();
+        dU.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnDeletarUsuarioActionPerformed
+
+    private void btnCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarUsuarioActionPerformed
+        CadastroUsuario cadUser = new CadastroUsuario();
+        cadUser.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCadastrarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +129,8 @@ public class MenuBibliotecario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrarUsuario;
+    private javax.swing.JButton btnDeletarUsuario;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

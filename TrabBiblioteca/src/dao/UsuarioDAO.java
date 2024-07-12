@@ -9,6 +9,7 @@ import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -68,13 +69,14 @@ public class UsuarioDAO {
     
     public Usuario procuraUsuario(String usuario, String senha){
         String sql = "SELECT * FROM usuarios WHERE login = ? AND senha = ?";
-        Usuario user = new Usuario();
+        
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);
             
             stmt.setString(1, usuario);
             stmt.setString(2, senha);
             
+            Usuario user = new Usuario();
             
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
@@ -90,8 +92,57 @@ public class UsuarioDAO {
             return user;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println(user.getLogin());
             return null;
         }
     }
+    
+        public Usuario procuraUsuario(String identificacao){
+            String sql = "SELECT * FROM usuarios WHERE matricula = ?";
+
+            try {
+                PreparedStatement stmt = this.conn.prepareStatement(sql);
+
+                stmt.setString(1, identificacao);
+
+                Usuario user = new Usuario();
+
+                ResultSet rs = stmt.executeQuery();
+                while(rs.next()){
+                    user.setNome(rs.getString("nome"));
+                    user.setEmail(rs.getString("email"));
+                    user.setLogin(rs.getString("login"));
+                    user.setPassword(rs.getString("senha"));
+                    user.setMatricula(rs.getString("matricula"));
+                    user.setTipoDeUsuario(rs.getString("tipoUsuario"));
+
+                }
+
+                return user;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return null;
+            }
+
+        }
+        
+        public boolean deletarUsuario(String identificacao, String login){
+            String sql = "DELETE FROM usuarios WHERE matricula = ? AND login = ?";
+            
+            try {
+                PreparedStatement stmt = this.conn.prepareStatement(sql);
+                stmt.setString(1,identificacao);
+                stmt.setString(2,login);
+                
+                if (!System.getProperty("matricula").equals(identificacao)){
+                    stmt.execute();
+                    return true;
+                } else {
+                    return false;
+                }               
+                
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+                return false;
+            }
+        }
 }
