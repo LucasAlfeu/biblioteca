@@ -21,6 +21,13 @@ public class Livro {
     public Livro(){
         
     }
+    
+    
+    public Livro(String titulo, String autor, int numeroExemplares){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.numeroExemplares = numeroExemplares;
+    }
 
     public Livro(String titulo, String autor, String editora, String categoria, int anoLancamento, int numeroExemplares) {
         this.titulo = titulo;

@@ -4,6 +4,8 @@
  */
 package br.biblioteca.views;
 
+import forms.AdicionarSugestao;
+
 /**
  *
  * @author a1feu
@@ -37,10 +39,10 @@ public class InicioUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        btnSugestao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema Gerenciador da Biblioteca");
-        setPreferredSize(new java.awt.Dimension(967, 598));
         setSize(new java.awt.Dimension(967, 598));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
@@ -77,6 +79,13 @@ public class InicioUsuario extends javax.swing.JFrame {
 
         jLabel4.setText("Tipo de Usuário");
 
+        btnSugestao.setText("Sugestão");
+        btnSugestao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSugestaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,6 +104,8 @@ public class InicioUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSugestao)
+                .addGap(32, 32, 32)
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
@@ -119,7 +130,8 @@ public class InicioUsuario extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(btnSugestao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addGap(112, 112, 112)
@@ -141,6 +153,12 @@ public class InicioUsuario extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSugestaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSugestaoActionPerformed
+        // TODO add your handling code here:
+        AdicionarSugestao frc = new AdicionarSugestao();
+        frc.setVisible(true);
+    }//GEN-LAST:event_btnSugestaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,6 +196,7 @@ public class InicioUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSugestao;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

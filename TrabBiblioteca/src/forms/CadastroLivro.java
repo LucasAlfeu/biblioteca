@@ -4,6 +4,7 @@
  */
 package forms;
 
+import beans.Exemplar;
 import beans.Livro;
 import dao.LivroDAO;
 
@@ -43,6 +44,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         jsAnoLancamento = new javax.swing.JSpinner();
         jsNumExemplares = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema Gerenciador da Biblioteca");
@@ -75,6 +77,13 @@ public class CadastroLivro extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,7 +91,9 @@ public class CadastroLivro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCadastrar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
@@ -144,7 +155,9 @@ public class CadastroLivro extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jsNumExemplares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
-                .addComponent(btnCadastrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar)
+                    .addComponent(jButton1))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -162,9 +175,10 @@ public class CadastroLivro extends javax.swing.JFrame {
         int numeroExemplares = Integer.parseInt(jsNumExemplares.getValue().toString());
         
         Livro livro = new Livro(titulo, autor, editora, categoria, anoLancamento, numeroExemplares);
+        Exemplar exemplar = new Exemplar(titulo, autor, "Disponível", livro);
         
         LivroDAO livroDAO = new LivroDAO();
-        livroDAO.cadastrarLivro(livro);
+        livroDAO.cadastrarLivro(livro, exemplar);
         
         txtTitulo.setText("");
         txtAutor.setText("");
@@ -174,6 +188,12 @@ public class CadastroLivro extends javax.swing.JFrame {
         jsNumExemplares.setValue(0);
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        AtualizarLivro frc = new AtualizarLivro();
+        frc.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +232,7 @@ public class CadastroLivro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

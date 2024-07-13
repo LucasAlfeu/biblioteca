@@ -9,20 +9,57 @@ package beans;
  * @author Usuario
  */
 public class Exemplar {
-    public String idExemplar;
-    public boolean emprestavel;
-
-    public String getIdExemplar() {
-        return idExemplar;
+    private int idexemplares;
+    private String titulo;
+    private String autor;
+    private String estado;
+    private Livro isbn;
+    
+    public Exemplar(String titulo, String autor, String estado, Livro isbn){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.estado = estado;
+        this.isbn = isbn;
     }
 
-    public boolean isEmprestavel() {
-        return emprestavel;
+    public int getIdexemplares() {
+        return idexemplares;
     }
 
-    public void setEmprestavel(boolean emprestavel) {
-        this.emprestavel = emprestavel;
+    public String getTitulo() {
+        return titulo;
     }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public Livro getIsbn() {
+        return isbn;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setIsbn(Livro isbn) {
+        this.isbn = isbn;
+    }
+
+    
+    
     
     
 }
