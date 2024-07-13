@@ -61,7 +61,7 @@ public class DeletaUsuario extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 23)); // NOI18N
         jLabel2.setText("Deletar Usuário");

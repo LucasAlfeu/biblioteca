@@ -145,4 +145,21 @@ public class UsuarioDAO {
                 return false;
             }
         }
+        
+        public void atualizarDados(Usuario usuario){
+            String sql = "UPDATE usuarios SET nome = ?, email = ?, login = ?, senha = ? WHERE matricula = ?";
+                
+            try {
+                PreparedStatement stmt = this.conn.prepareStatement(sql);
+                stmt.setString(1, usuario.getNome());
+                stmt.setString(2, usuario.getEmail());
+                stmt.setString(3, usuario.getLogin());
+                stmt.setString(4, usuario.getPassword());
+                stmt.setString(5, System.getProperty("matricula"));
+                
+                stmt.execute();
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
 }
