@@ -30,9 +30,8 @@ public class LivroDAO{
     }
     
     
-    public void cadastrarLivro(Livro livro, Exemplar exemplar){
+    public void cadastrarLivro(Livro livro){
         String sql = "INSERT INTO livros(titulo,autor,editora,categoria,anolancamento,numeroexemplares) VALUES (?,?,?,?,?,?)";
-        String sql2 = "INSERT INTO exemplares(titulo, autor, estado, isbn) VALUES (?,?,?,?)";
         try {
             PreparedStatement stmt = this.conn.prepareStatement(sql);
             stmt.setString(1, livro.getTitulo());
@@ -43,16 +42,7 @@ public class LivroDAO{
             stmt.setInt(6, livro.getNumeroExemplares());
             stmt.execute();
             
-            int count = livro.getNumeroExemplares();
-            while(count != 0){
-                PreparedStatement stmt2 = this.conn.prepareStatement(sql2);
-                stmt2.setString(1, exemplar.getTitulo());
-                stmt2.setString(2, exemplar.getAutor());
-                stmt2.setString(3, exemplar.getEstado());
-                stmt2.setInt(4, exemplar.getIsbn().getId());
-                stmt2.execute();
-                count -= 1;
-            }
+           
         }
         catch (Exception e){
             System.out.println("Erro ao inserir livro: " + e.getMessage());
@@ -65,6 +55,7 @@ public class LivroDAO{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
             stmt.setInt(1, id);
             stmt.execute();
+            
         }
         catch (Exception e){
             System.out.println("Error ao remover livro: "+ e.getMessage());
@@ -94,6 +85,7 @@ public class LivroDAO{
             return null;
         }
     }
+    
     
     public void atualizarLivro(Livro livro) throws NumberFormatException{
         String sql = "UPDATE livros SET titulo=?, autor=?, editora=?, categoria=?, anolancamento=?,numeroexemplares=? WHERE id=? ";
@@ -138,6 +130,8 @@ public class LivroDAO{
             return null;
         }
     }
+    
+    
     
     public void adicionarSugestao(Livro livro){
         String sql = "INSERT INTO sugestoes(titulo, autor) VALUES (?,?)";

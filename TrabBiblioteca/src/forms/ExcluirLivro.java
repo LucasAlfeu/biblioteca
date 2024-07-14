@@ -4,19 +4,33 @@
  */
 package forms;
 
+import beans.Exemplar;
+import beans.Livro;
+import dao.ExemplarDAO;
 import dao.LivroDAO;
+import java.util.List;
 
 /**
  *
  * @author Usuario
  */
 public class ExcluirLivro extends javax.swing.JFrame {
+    
+    public void preencherComboLivros(){
+        LivroDAO livroDAO = new LivroDAO();
+        List<Livro> lista = livroDAO.getLivros("");
+        
+        for(Livro l:lista){
+            cmbLivros.addItem(l);
+        }
+    }
 
     /**
      * Creates new form ExcluirLivro
      */
     public ExcluirLivro() {
         initComponents();
+        preencherComboLivros();
     }
 
     /**
@@ -32,6 +46,8 @@ public class ExcluirLivro extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         btnExcluir = new javax.swing.JButton();
+        cmbLivros = new javax.swing.JComboBox();
+        btnExcluirExemplar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,21 +69,33 @@ public class ExcluirLivro extends javax.swing.JFrame {
             }
         });
 
+        btnExcluirExemplar.setText("Excluir Exemplares");
+        btnExcluirExemplar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirExemplarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtId)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnExcluir))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(cmbLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluir))
-                    .addComponent(jLabel1))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addComponent(btnExcluirExemplar)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,10 +107,15 @@ public class ExcluirLivro extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluir))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbLivros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluirExemplar))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
@@ -96,6 +129,13 @@ public class ExcluirLivro extends javax.swing.JFrame {
         livroDAO.excluirLivro(id);
         txtId.setText("");
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnExcluirExemplarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirExemplarActionPerformed
+        // TODO add your handling code here:
+        Livro livroTitulo = (Livro) cmbLivros.getSelectedItem();
+        ExemplarDAO exemplarDAO = new ExemplarDAO();
+        exemplarDAO.excluirExemplar(livroTitulo.getTitulo());
+    }//GEN-LAST:event_btnExcluirExemplarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,6 +174,8 @@ public class ExcluirLivro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnExcluirExemplar;
+    private javax.swing.JComboBox cmbLivros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtId;

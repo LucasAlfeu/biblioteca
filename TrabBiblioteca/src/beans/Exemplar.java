@@ -10,12 +10,16 @@ package beans;
  */
 public class Exemplar {
     private int idexemplares;
-    private String titulo;
-    private String autor;
+    private Livro titulo;
+    private Livro autor;
     private String estado;
     private Livro isbn;
     
-    public Exemplar(String titulo, String autor, String estado, Livro isbn){
+    public Exemplar(){
+        
+    }
+    
+    public Exemplar(Livro titulo, Livro autor, String estado, Livro isbn){
         this.titulo = titulo;
         this.autor = autor;
         this.estado = estado;
@@ -26,11 +30,11 @@ public class Exemplar {
         return idexemplares;
     }
 
-    public String getTitulo() {
+    public Livro getTitulo() {
         return titulo;
     }
 
-    public String getAutor() {
+    public Livro getAutor() {
         return autor;
     }
 
@@ -42,11 +46,17 @@ public class Exemplar {
         return isbn;
     }
 
-    public void setTitulo(String titulo) {
+    public void setIdexemplares(int idexemplares) {
+        this.idexemplares = idexemplares;
+    }
+    
+    
+
+    public void setTitulo(Livro titulo) {
         this.titulo = titulo;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Livro autor) {
         this.autor = autor;
     }
 
@@ -57,6 +67,8 @@ public class Exemplar {
     public void setIsbn(Livro isbn) {
         this.isbn = isbn;
     }
+    
+    
 
     
     
