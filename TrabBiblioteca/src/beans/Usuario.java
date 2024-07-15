@@ -15,18 +15,27 @@ public class Usuario {
     protected String password;
     protected String idUsuario;
     protected String tipoDeUsuario;
+    protected String matricula;
     
     public Usuario(){
         
     }
 
-    public Usuario(String nome, String email, String login, String password, String idUsuario, String tipoDeUsuario) {
+    public Usuario(String nome, String email, String login, String password, String matricula, String tipoDeUsuario) {
         this.nome = nome;
         this.email = email;
         this.login = login;
         this.password = password;
-        this.idUsuario = idUsuario;
+        this.matricula = matricula;
         this.tipoDeUsuario = tipoDeUsuario;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getIdUsuario() {

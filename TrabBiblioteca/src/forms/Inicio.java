@@ -43,7 +43,9 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         preencheTabela();
+        System.setProperty("logado", "nao");
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,8 +60,8 @@ public class Inicio extends javax.swing.JFrame {
         txtBusca = new javax.swing.JTextField();
         btnBusca = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLivros = new javax.swing.JTable();
 
@@ -87,9 +89,19 @@ public class Inicio extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setText("Filtro");
 
-        jButton3.setText("Cadastrar");
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Entrar");
+        btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         tblLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,9 +130,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(btnEntrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(btnCadastrar)
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -128,8 +140,8 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnEntrar))
                 .addGap(119, 119, 119)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -155,6 +167,18 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         preencheTabela();
     }//GEN-LAST:event_btnBuscaActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        Login lg = new Login();
+        lg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        CadastroUsuario cdU = new CadastroUsuario();
+        cdU.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,9 +217,9 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBusca;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblLivros;

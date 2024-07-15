@@ -2,7 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.biblioteca.views;
+package forms;
+
+import beans.Administrador;
+import beans.Aluno;
+import beans.Bibliotecario;
+import beans.Professor;
 
 /**
  *
@@ -13,10 +18,40 @@ public class InicioUsuario extends javax.swing.JFrame {
     /**
      * Creates new form InicioUsuario
      */
+    
+    private String tipoUser = System.getProperty("tipoUsuario");
+    
     public InicioUsuario() {
         initComponents();
+        this.criarObjeto();
+        jlNome.setText(System.getProperty("nome"));
+        jlTipoUsuario.setText(System.getProperty("tipoUsuario"));
     }
-
+    
+    private void criarObjeto(){
+        String nome = System.getProperty("nome");
+        String email = System.getProperty("email");
+        String login = System.getProperty("login");
+        String senha = System.getProperty("senha");
+        String matricula = System.getProperty("matricula");
+        String tipoUsuario = System.getProperty("tipoUsuario");
+        
+        if(System.getProperty("tipoUsuario").equals("Aluno")){
+            Aluno aluno = new Aluno(nome, email, login, senha, matricula, tipoUsuario);
+        }
+        
+        if (System.getProperty("tipoUsuario").equals("Professor")){
+            Professor professor = new Professor(nome, email, login, senha, matricula, tipoUsuario);
+        }
+        
+        if (System.getProperty("tipoUsuario").equals("Bibliotecário")){
+            Bibliotecario bibliotecario = new Bibliotecario(nome, email, login, senha, matricula, tipoUsuario);
+        }
+        
+        if (System.getProperty("tipoUsuario").equals("Administrador")){
+            Administrador adm = new Administrador(nome, email, login, senha, matricula, tipoUsuario);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,15 +67,14 @@ public class InicioUsuario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
+        bntMenu = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jlNome = new javax.swing.JLabel();
+        jlTipoUsuario = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sistema Gerenciador da Biblioteca");
-        setPreferredSize(new java.awt.Dimension(967, 598));
         setSize(new java.awt.Dimension(967, 598));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 23)); // NOI18N
@@ -67,15 +101,25 @@ public class InicioUsuario extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton3.setText("Sair");
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Menu");
+        bntMenu.setText("Menu");
+        bntMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntMenuActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Seja bem vindo, ");
 
-        jLabel3.setText("nome do usuário");
+        jlNome.setText("nome do usuário");
 
-        jLabel4.setText("Tipo de Usuário");
+        jlTipoUsuario.setText("Tipo de Usuário");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,14 +134,14 @@ public class InicioUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jlTipoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(jlNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(bntMenu)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnSair)
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(207, Short.MAX_VALUE)
@@ -116,12 +160,12 @@ public class InicioUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
+                    .addComponent(btnSair)
+                    .addComponent(bntMenu)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jlNome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(jlTipoUsuario)
                 .addGap(112, 112, 112)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -136,15 +180,53 @@ public class InicioUsuario extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        System.clearProperty("nome");
+        System.clearProperty("email");
+        System.clearProperty("login");
+        System.clearProperty("senha");
+        System.clearProperty("matricula");
+        System.clearProperty("tipoUsuario");
+        System.clearProperty("logado");
+        
+        Inicio ini = new Inicio();
+        ini.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void bntMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMenuActionPerformed
+        if(tipoUser.equals("Aluno")){
+            MenuAP menuAluno = new MenuAP();
+            menuAluno.setVisible(true);
+        }
+        
+        if(tipoUser.equals("Professor")){
+            MenuAP menuProfessor = new MenuAP();
+            menuProfessor.setVisible(true);
+        }
+        
+        if(tipoUser.equals("Bibliotecário")){
+            MenuBibliotecario menuBiblio = new MenuBibliotecario();
+            menuBiblio.setVisible(true);
+        }
+        
+        if(tipoUser.equals("Administrador")){
+            MenuBibliotecario menuAdm = new MenuBibliotecario();
+            menuAdm.setVisible(true);
+        }
+    }//GEN-LAST:event_bntMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -178,16 +260,16 @@ public class InicioUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntMenu;
+    private javax.swing.JButton btnSair;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jlNome;
+    private javax.swing.JLabel jlTipoUsuario;
     // End of variables declaration//GEN-END:variables
 }
