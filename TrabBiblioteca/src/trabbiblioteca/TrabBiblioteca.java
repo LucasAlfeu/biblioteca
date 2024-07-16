@@ -4,6 +4,8 @@
  */
 package trabbiblioteca;
 
+import conexao.Conexao;
+
 /**
  *
  * @author Usuario
@@ -14,7 +16,8 @@ public class TrabBiblioteca {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Conexao conn = new Conexao();
+        conn.getConexao();
     }
     
 }

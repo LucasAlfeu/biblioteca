@@ -30,7 +30,6 @@ public class Inicio extends javax.swing.JFrame {
                 l.getTitulo(),
                 l.getAutor(),
                 l.getNumeroExemplares(),
-                l.getEstado()
             };
             tabelaLivros.addRow(obj);
         }
@@ -43,9 +42,7 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         preencheTabela();
-        System.setProperty("logado", "nao");
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,8 +57,8 @@ public class Inicio extends javax.swing.JFrame {
         txtBusca = new javax.swing.JTextField();
         btnBusca = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnCadastrar = new javax.swing.JButton();
-        btnEntrar = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLivros = new javax.swing.JTable();
 
@@ -89,26 +86,16 @@ public class Inicio extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setText("Filtro");
 
-        btnCadastrar.setText("Cadastrar");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
-            }
-        });
+        jButton3.setText("Cadastrar");
 
-        btnEntrar.setText("Entrar");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
-            }
-        });
+        jButton4.setText("Entrar");
 
         tblLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Título", "Autor", "Número de Exemplares", "Estado"
+                "ID", "Título", "Autor", "Número de Exemplares"
             }
         ));
         jScrollPane1.setViewportView(tblLivros);
@@ -118,21 +105,22 @@ public class Inicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
+                .addGap(230, 230, 230)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel1)
                     .addComponent(txtBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBusca)
                         .addGap(94, 94, 94)
-                        .addComponent(jButton2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addComponent(jButton2)))
+                .addContainerGap(157, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEntrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastrar)
+                .addComponent(jButton3)
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -140,8 +128,8 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar)
-                    .addComponent(btnEntrar))
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
                 .addGap(119, 119, 119)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -167,18 +155,6 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         preencheTabela();
     }//GEN-LAST:event_btnBuscaActionPerformed
-
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        Login lg = new Login();
-        lg.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnEntrarActionPerformed
-
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        CadastroUsuario cdU = new CadastroUsuario();
-        cdU.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,9 +193,9 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBusca;
-    private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnEntrar;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblLivros;

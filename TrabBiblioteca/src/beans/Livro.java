@@ -9,25 +9,37 @@ package beans;
  * @author Usuario
  */
 public class Livro {
-    protected int id;
-    protected String titulo;
-    protected String autor;
-    protected int numeroExemplares;
-    protected String estado;
-    protected String editora;
+    private int id;
+    private String titulo;
+    private String autor;
+    private String editora;
+    private String categoria;
+    private int anoLancamento;
+    private int numeroExemplares;
+    private String estado;
     
     public Livro(){
         
     }
-
-    public Livro(int id, String titulo, String autor, int numeroExemplares, String estado, String editora) {
-        this.id = id;
+    
+    
+    public Livro(String titulo, String autor, int numeroExemplares){
         this.titulo = titulo;
         this.autor = autor;
         this.numeroExemplares = numeroExemplares;
-        this.estado = estado;
+    }
+
+    public Livro(String titulo, String autor, String editora, String categoria, int anoLancamento, int numeroExemplares) {
+        this.titulo = titulo;
+        this.autor = autor;
         this.editora = editora;
-    }   
+        this.categoria = categoria;
+        this.anoLancamento = anoLancamento;
+        this.numeroExemplares = numeroExemplares;
+    }
+
+    
+    
     
 
     public int getId() {
@@ -46,6 +58,22 @@ public class Livro {
         return editora;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public int getAnoLancamento() {
+        return anoLancamento;
+    }
+
+    public int getNumeroExemplares() {
+        return numeroExemplares;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -58,14 +86,20 @@ public class Livro {
         this.autor = autor;
     }
 
-    public int getNumeroExemplares() {
-        return numeroExemplares;
+    public void setEditora(String editora) {
+        this.editora = editora;
     }
 
-    public String getEstado() {
-        return estado;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
+    public void setAnoLancamento(int anoLancamento) {
+        this.anoLancamento = anoLancamento;
+    }
+
+    
+    
     public void setNumeroExemplares(int numeroExemplares) {
         this.numeroExemplares = numeroExemplares;
     }
@@ -73,10 +107,14 @@ public class Livro {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public void setEditora(String editora) {
-        this.editora = editora;
+    
+    
+    @Override
+    public String toString(){
+        return this.titulo;
     }
+
+    
     
     
 }
